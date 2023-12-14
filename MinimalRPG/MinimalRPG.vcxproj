@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Funcions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MostarMapa.cpp" />
   </ItemGroup>
