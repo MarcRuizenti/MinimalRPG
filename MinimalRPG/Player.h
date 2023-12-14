@@ -1,5 +1,6 @@
 #pragma once
 #include "MapPosition.h"
+#include "Gear.h"
 
 struct Player
 {
@@ -17,6 +18,8 @@ struct Player
 
 	int potion;
 	int maxPotion;
+
+	vector<Gear> gears;
 
 	void Initialize();
 };

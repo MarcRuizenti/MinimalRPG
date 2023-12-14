@@ -129,14 +129,17 @@
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameFuncions.cpp" />
+    <ClCompile Include="Chest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainManager.cpp" />
     <ClCompile Include="MostarMapa.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chest.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameFunctions.h" />
+    <ClInclude Include="Gear.h" />
     <ClInclude Include="MainManager.h" />
     <ClInclude Include="MapPosition.h" />
     <ClInclude Include="MostrarMapa.h" />

@@ -4,11 +4,11 @@ void MainManager::Initialize() {
 	currentScene = DUNGEON;
 	gameIsFinish = false;
 
-	//Chest
-
 	//Player
 	p = new Player;
 	p->Initialize();
+
+	//Chest
 
 	//Enemies
 	enemies.resize(rand() % 5 + 3);
