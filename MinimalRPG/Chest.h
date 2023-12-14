@@ -6,7 +6,7 @@ struct Chest
 {
 	MapPosition position;
 	int gold;
-	Gear gear;
+	Gear* gear;
 	bool potion;
 	bool isLooted;
 
