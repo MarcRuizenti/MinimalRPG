@@ -14,5 +14,4 @@ struct MainManager
 	
 
 	void Initialize();
-	void MoveEnemies();
 };

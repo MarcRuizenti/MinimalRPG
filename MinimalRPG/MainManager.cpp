@@ -11,9 +11,15 @@ void MainManager::Initialize() {
 	//Enemies
 	enemies.resize(rand() % 5 + 3);
 	for (int i = 0; i < enemies.size(); i++) {
-
+		Enemy* tmp;
+		tmp->Initialize();
+		enemies.push_back(tmp);
 	}
-	MoveEnemies();
+	for (int i = 0; i < enemies.size(); i++ ) {
+		for (int j = 0; j < enemies.size(); j++) {
+
+		}
+	}
 	
 	//Chest
 }
