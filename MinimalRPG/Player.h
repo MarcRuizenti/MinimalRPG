@@ -13,7 +13,7 @@ struct Player
 	int health;
 	int healthMax;
 	int stamina;
-	int staminaMAx;
+	int staminaMax;
 	int agility;
 	int potion;
 };
