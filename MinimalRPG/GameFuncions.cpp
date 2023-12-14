@@ -13,3 +13,6 @@ void Chest(MainManager* mm) {
 void GameOver(MainManager* mm) {
 
 }
+vector<vector<char>> CreateMap(MainManager* mm) {
+
+}
