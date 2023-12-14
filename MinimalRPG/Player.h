@@ -1,19 +1,16 @@
 #pragma once
-#include<iostream>
-#include<cstdlib>
-#include<time.h>
-#include<string>
-#include<vector>
+#include "MapPosition.h"
 
 struct Player
 {
-	int potitionX;
-	int potitionY;
+	MapPosition position;
 	int gold;
 	int health;
-	int healthMax;
+	int maxHealth;
 	int stamina;
-	int staminaMax;
+	int maxStamina;
 	int agility;
+	int maxAgility;
 	int potion;
+	int maxPotion;
 };

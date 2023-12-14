@@ -1,10 +1,9 @@
 #pragma once
-#include "Player.h"
+#include "MapPosition.h"
 
 struct Enemy
 {
-	int potitionX;
-	int potitionY;
+	MapPosition position;
 	bool isDead;
 	int health;
 	int healthMax;
