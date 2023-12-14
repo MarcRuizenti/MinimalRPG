@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="MainManager.h" />
     <ClInclude Include="MapPosition.h" />
     <ClInclude Include="MostrarMapa.h" />
