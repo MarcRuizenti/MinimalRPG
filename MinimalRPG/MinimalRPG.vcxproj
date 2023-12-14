@@ -130,6 +130,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameFuncions.cpp" />
     <ClCompile Include="Chest.cpp" />
+    <ClCompile Include="Gear.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainManager.cpp" />
     <ClCompile Include="MostarMapa.cpp" />

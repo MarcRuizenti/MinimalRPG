@@ -13,9 +13,9 @@ void MainManager::Initialize() {
 	//Enemies
 	enemies.resize(rand() % 5 + 3);
 	for (int i = 0; i < enemies.size(); i++) {
-		Enemy* tmp;
-		tmp->Initialize();
-		enemies.push_back(tmp);
+		Enemy* temp;
+		temp->Initialize();
+		enemies.push_back(temp);
 	}
 
 	MoveEnemy();

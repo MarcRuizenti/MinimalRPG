@@ -36,6 +36,9 @@
     <ClCompile Include="Chest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Gear.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MostrarMapa.h">

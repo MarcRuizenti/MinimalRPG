@@ -1,6 +1,8 @@
 #pragma once
 #include "MapPosition.h"
 
+enum gears {RICHARDHATRED, SWIFTBOOTS, WHITEPOWDER, RADEVMUG};
+
 struct Gear
 {
 	string name;
@@ -9,6 +11,6 @@ struct Gear
 	int stamina;
 	int agility;
 
-
+	void Initialize();
 
 };
