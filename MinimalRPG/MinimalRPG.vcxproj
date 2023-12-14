@@ -127,7 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Funcions.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameFuncions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainManager.cpp" />
     <ClCompile Include="MostarMapa.cpp" />
@@ -135,7 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Functions.h" />
+    <ClInclude Include="GameFunctions.h" />
     <ClInclude Include="MainManager.h" />
     <ClInclude Include="MapPosition.h" />
     <ClInclude Include="MostrarMapa.h" />

@@ -1,8 +1,8 @@
 #include "Player.h"
 
 void Player::Initialize() {
-	position.X = rand() % 5;
-	position.Y = rand() % 5;
+	position.X = 3;
+	position.Y = 2;
 
 	gold = 0;
 

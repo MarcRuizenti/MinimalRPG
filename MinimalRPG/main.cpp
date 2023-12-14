@@ -1,4 +1,4 @@
-#include "Functions.h"
+#include "GameFunctions.h"
 
 int main() {
 	
