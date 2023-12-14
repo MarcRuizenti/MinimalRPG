@@ -3,6 +3,8 @@
 int main() {
 	
 	MainManager* mm = new MainManager;
+	mm->Initialize();
+
 	do {
 		switch (mm->currentScene)
 		{

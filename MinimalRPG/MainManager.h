@@ -8,6 +8,12 @@ struct MainManager
 {
 	Scene currentScene;
 	bool gameIsFinish;
+
 	Player* p;
 	vector<Enemy*> enemies;
+	
+
+	void Initialize();
+	void MoveEnemies();
+
 };
