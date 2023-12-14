@@ -13,4 +13,5 @@ struct Enemy
 	int staminaMax;
 
 	void Initialize();
+	
 };
