@@ -28,7 +28,7 @@ void Gear::Initialize() {
 		stamina = 20;
 		agility = 1;
 		break;
-	case RADEVMU:
+	case RADEVMUG:
 		name = "Radev’s Mug";
 		goldValue = -300;
 		hp = -20;
