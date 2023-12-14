@@ -1,10 +1,10 @@
-
-enum Scene {DUNGEON, COMBAT, CHEST, GAMEOVER};
+#include "MainManager.h"
 
 int main() {
-	Scene currentScene = DUNGEON;
+	
+	MainManager* mm = new MainManager;
 
-	switch (currentScene)
+	switch (mm->currentScene)
 	{
 	case DUNGEON:
 		break;
