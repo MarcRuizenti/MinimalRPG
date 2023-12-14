@@ -9,7 +9,11 @@ void MainManager::Initialize() {
 	p->Initialize();
 
 	//Enemies
-	MoveEnemies();
+	enemies.resize(rand() % 5 + 3);
+	for (int i = 0; i < enemies.size(); i++) {
 
+	}
+	MoveEnemies();
+	
 	//Chest
 }
