@@ -11,7 +11,7 @@ void MainManager::Initialize() {
 	//Chest
 	c.resize(2);
 	for (int i = 0; i < c.size(); i++) {
-		Chest* temp = new Chest;
+		Chests* temp = new Chests;
 		temp->Initialize();
 		c[i] = temp;
 	}

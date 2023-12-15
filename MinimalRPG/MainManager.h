@@ -11,7 +11,7 @@ struct MainManager
 	bool gameIsFinish;
 
 	Player* p;
-	vector<Chest*> c;
+	vector<Chests*> c;
 	vector<Enemy*> enemies;
 	
 

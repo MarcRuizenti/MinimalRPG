@@ -1,6 +1,6 @@
 #include "Chest.h"
 
-void Chest::Initialize() {
+void Chests::Initialize() {
 
 	position.X = rand() % 5;
 	position.Y = rand() % 5;

@@ -2,7 +2,7 @@
 #include "MapPosition.h"
 #include "Gear.h"
 
-struct Chest
+struct Chests
 {
 	MapPosition position;
 	int gold;
