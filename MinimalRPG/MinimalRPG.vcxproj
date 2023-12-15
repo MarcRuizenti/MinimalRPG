@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CreateMap.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameFuncions.cpp" />
     <ClCompile Include="Chest.cpp" />
@@ -138,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chest.h" />
+    <ClInclude Include="CreateMap.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameFunctions.h" />
     <ClInclude Include="Gear.h" />
