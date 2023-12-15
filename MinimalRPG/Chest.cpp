@@ -7,6 +7,7 @@ void Chests::Initialize() {
 
 	gold = rand() % 50 + 151;
 
+	gear = new Gear;
 	gear->Initialize();
 	
 	int probabilityPotion = rand() % 4 + 1;

@@ -2,7 +2,7 @@
 #include "MostrarMapa.h"
 
 void Dungeon(MainManager* mm) {
-	system("cls");
+	
 
 	int sixeX = 5;
 	int sixeY = 5;

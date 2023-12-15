@@ -1,8 +1,8 @@
 #include "Player.h"
 
 void Player::Initialize() {
-	position.X = 3;
-	position.Y = 2;
+	position.X = 2;
+	position.Y = 3;
 
 	gold = 0;
 

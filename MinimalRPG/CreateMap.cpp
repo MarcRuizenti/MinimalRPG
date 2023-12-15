@@ -11,7 +11,7 @@ vector<vector<char>> CreateMap(MainManager* mm, int sizeX, int sizeY) {
 				temp[i][j] = 'P';
 			}
 			for (int k = 0; k < mm->c.size(); k++) {
-				if (i == mm->c[k]->position.Y && j == mm->c[k]->position.X) {
+				if (i == mm->c[k]->position.Y && j == mm->c[k]->position.X && !mm->c[k]->isLooted) {
 					temp[i][j] = 'C';
 				}
 			}
