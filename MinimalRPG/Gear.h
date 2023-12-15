@@ -5,7 +5,7 @@ enum gears {RICHARDHATRED, SWIFTBOOTS, WHITEPOWDER, RADEVMUG};
 
 struct Gear
 {
-	string name;
+	//string name;
 	int goldValue;
 	int hp;
 	int stamina;

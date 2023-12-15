@@ -5,7 +5,7 @@ vector<vector<char>> CreateMap(MainManager* mm, int sizeX, int sizeY) {
 	temp.resize(sizeX, vector<char>(sizeY));
 
 	for (int i = 0; i < sizeY; i++) {
-		for (int j = 0; i < sizeX; j++) {
+		for (int j = 0; j < sizeX; j++) {
 			temp[i][j] = ' ';
 			if (i == mm->p->position.Y && j == mm->p->position.X) {
 				temp[i][j] = 'P';

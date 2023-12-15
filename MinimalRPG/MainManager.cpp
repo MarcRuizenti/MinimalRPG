@@ -56,7 +56,7 @@ void MainManager::MoveEnemy() {
 
 void MainManager::PositionChest() {
 	for (int i = 0; i < c.size(); i++) {
-		for (int j = 0; j < c.size(); i++) {
+		for (int j = 0; j < c.size(); j++) {
 			if (i != j) {
 				if (c[i]->position.X == c[j]->position.X && c[i]->position.Y == c[j]->position.Y) {
 					c[i]->position.X = rand() % 5;

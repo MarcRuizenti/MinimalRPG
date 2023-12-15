@@ -11,5 +11,4 @@ struct Chests
 	bool isLooted;
 
 	void Initialize();
-
 };
