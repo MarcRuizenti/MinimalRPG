@@ -16,7 +16,7 @@ void MainManager::Initialize() {
 		c[i] = temp;
 	}
 
-	ChestPosition();
+	PositionChest();
 	
 	//Enemies
 	enemies.resize(rand() % 5 + 3);
@@ -54,7 +54,7 @@ void MainManager::MoveEnemy() {
 	}
 }
 
-void MainManager::ChestPosition() {
+void MainManager::PositionChest() {
 	for (int i = 0; i < c.size(); i++) {
 		for (int j = 0; j < c.size(); i++) {
 			if (i != j) {

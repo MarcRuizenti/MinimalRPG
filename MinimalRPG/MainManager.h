@@ -17,5 +17,5 @@ struct MainManager
 
 	void Initialize();
 	void MoveEnemy();
-	void ChestPosition();
+	void PositionChest();
 };

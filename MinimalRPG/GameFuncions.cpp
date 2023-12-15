@@ -13,6 +13,9 @@ void Chest(MainManager* mm) {
 void GameOver(MainManager* mm) {
 
 }
-vector<vector<char>> CreateMap(MainManager* mm) {
+vector<vector<char>> CreateMap(MainManager* mm, int size) {
+	vector<vector<char>> temp;
+	temp.resize(size);
+
 
 }
