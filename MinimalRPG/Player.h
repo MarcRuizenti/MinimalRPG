@@ -19,7 +19,7 @@ struct Player
 	int potion;
 	int maxPotion;
 
-	vector<Gear> gears;
+	vector<Gear*> gears;
 
 	void Initialize();
 };

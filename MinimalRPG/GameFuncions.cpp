@@ -65,7 +65,25 @@ void Combat(MainManager* mm) {
 	mm->currentScene = DUNGEON;
 }
 void Chest(MainManager* mm) {
-	cout << "Chest" << endl;
+	
+	int chest;
+	for (int i = 0; i < mm->c.size(); i++) {
+		if (mm->p->position.X == mm->c[i]->position.X && mm->p->position.Y == mm->c[i]->position.Y) {
+			chest = i;
+		}
+	}
+
+	cout << "------ CHEST ------" << endl << endl;
+
+	cout << " > You open the chest and it contains the following: " << endl << endl;
+
+	int gold = rand() % 151 + 50;
+
+	cout << "        > " << gold << "gold!" << endl;
+	cout << "        > The Chest contains Gear!" << endl;
+	cout << "                > " << mm->c[chest]->gear->name << "" << endl;
+	
+	mm->p->gears.push_back(mm->c[chest]->gear);
 	system("pause");
 	mm->currentScene = DUNGEON;
 }
