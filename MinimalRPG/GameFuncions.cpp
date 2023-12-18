@@ -44,13 +44,30 @@ void Dungeon(MainManager* mm) {
 		cout << "Icorect input" << endl << endl;
 	}
 
+	for (int i = 0; i < mm->c.size(); i++) {
+		if (mm->p->position.X == mm->c[i]->position.X && mm->p->position.Y == mm->c[i]->position.Y) {
+			mm->currentScene = CHEST;
+		}
+	}
+
+	for (int i = 0; i < mm->enemies.size(); i++) {
+		if (mm->p->position.X == mm->enemies[i]->position.X && mm->p->position.Y == mm->enemies[i]->position.Y) {
+			mm->currentScene = COMBAT;
+		}
+	}
+
 	system("pause");
 }
 void Combat(MainManager* mm) {
+	cout << "cOMABAT" << endl;
 
+	system("pause");
+	mm->currentScene = DUNGEON;
 }
 void Chest(MainManager* mm) {
-
+	cout << "Chest" << endl;
+	system("pause");
+	mm->currentScene = DUNGEON;
 }
 void GameOver(MainManager* mm) {
 
