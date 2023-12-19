@@ -13,9 +13,20 @@ void Dungeon(MainManager* mm) {
 	
 	cout << "E -> Enemy  P -> Player  C -> Chest" << endl << endl;
 
+	if (mm->p->agility == 0) {
+		for (int i = 0; i < mm->enemies.size(); i++) {
+			mm->enemies[i]->position.X = rand() % 5;
+			mm->enemies[i]->position.Y = rand() % 5;
+		}
+		mm->MoveEnemy();
+		mm->p->agility = mm->p->maxAgility;
+	}
+
 	cout << "Health: " << mm->p->health << " / " << mm->p->maxHealth << endl;
 	cout << "Postions: " << mm->p->potion << " / " << mm->p->maxPotion << endl;
 	cout << "Moves: " << mm->p->agility << " / " << mm->p->maxAgility << endl << endl;
+
+	
 
 	MostrarMapa(CreateMap(mm, sizeX, sizeY), sizeX, sizeY);
 
@@ -36,6 +47,7 @@ void Dungeon(MainManager* mm) {
 
 	if (input == "W" || input == "A" || input == "S" || input == "D") {
 		Move(mm, input, sizeX, sizeY);
+		mm->p->agility -= 1;
 	}
 	else if (input == "P") {
 
@@ -84,6 +96,7 @@ void Chest(MainManager* mm) {
 	cout << "                > " << mm->c[chest]->gear->name << "" << endl;
 	
 	mm->p->gears.push_back(mm->c[chest]->gear);
+	mm->c[chest]->isLooted = true;
 	system("pause");
 	mm->currentScene = DUNGEON;
 }
