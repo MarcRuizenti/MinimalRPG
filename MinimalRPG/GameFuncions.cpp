@@ -96,32 +96,38 @@ void Chest(MainManager* mm) {
 	cout << "        > The Chest contains Gear!" << endl;
 	cout << "                > " << mm->c[chest]->gear->name;
 
-	if (mm->c[chest]->gear->hp < 0) {
-		cout << " " << mm->c[chest]->gear->hp << "HP";
-	}
-	else if (mm->c[chest]->gear->hp > 0){
-		cout << " +" << mm->c[chest]->gear->hp << "HP";
-	}
-	
-	if (mm->c[chest]->gear->stamina < 0) {
-		cout << " " << mm->c[chest]->gear->stamina << " Stamina";
-	}
-	else if (mm->c[chest]->gear->stamina > 0) {
-		cout << " +" << mm->c[chest]->gear->stamina << " Stamina";
+	vector<int> stats;
+	stats.push_back(mm->c[chest]->gear->hp);
+	stats.push_back(mm->c[chest]->gear->stamina);
+	stats.push_back(mm->c[chest]->gear->agility);
+
+	vector<string> nameStats;
+	nameStats.push_back("HP");
+	nameStats.push_back(" Stamina");
+	nameStats.push_back(" Agility");
+
+	for (int i = 0; i < stats.size(); i++) {
+		if (stats[i] < 0) {
+			cout << " " << stats[i] << nameStats[i];
+		}
+		else if (stats[i] > 0) {
+			cout << " +" << stats[i] << nameStats[i];
+		}
 	}
 
-	if (mm->c[chest]->gear->agility < 0) {
-		cout << " " << mm->c[chest]->gear->agility << " Agility";
-	}
-	else if (mm->c[chest]->gear->agility > 0) {
-		cout << " +" << mm->c[chest]->gear->agility << " Agility";
+	cout << endl << endl;
+
+	if (mm->c[chest]->potion) {
+		cout << "        > The Chest contains a potion!" << endl;
+		if (mm->p->potion == mm->p->maxPotion)
+			cout << "                > You alredy have max potions!" << endl << endl;
+		else
+			mm->p->potion += 1;
 	}
 
-	cout << endl;
-
-	
 	mm->p->gears.push_back(mm->c[chest]->gear);
 	mm->c[chest]->isLooted = true;
+
 	system("pause");
 	mm->currentScene = DUNGEON;
 }

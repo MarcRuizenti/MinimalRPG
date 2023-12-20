@@ -16,6 +16,13 @@ void MainManager::Initialize() {
 		c[i] = temp;
 	}
 
+	int cambios = 0;
+	do {
+		if (c[0]->gear == c[1]->gear) {
+			c[0]->gear->Initialize();
+			cambios++;
+		}
+	} while (cambios != 0);
 	PositionChest();
 	
 	//Enemies
