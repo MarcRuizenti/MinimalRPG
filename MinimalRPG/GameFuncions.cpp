@@ -125,6 +125,15 @@ void Chest(MainManager* mm) {
 			mm->p->potion += 1;
 	}
 
+	mm->p->health += mm->c[chest]->gear->hp;
+	mm->p->maxHealth += mm->c[chest]->gear->hp;
+
+	mm->p->stamina += mm->c[chest]->gear->stamina;
+	mm->p->maxStamina += mm->c[chest]->gear->stamina;
+
+	mm->p->agility += mm->c[chest]->gear->agility;
+	mm->p->maxAgility += mm->c[chest]->gear->agility;
+
 	mm->p->gears.push_back(mm->c[chest]->gear);
 	mm->c[chest]->isLooted = true;
 

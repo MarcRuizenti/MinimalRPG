@@ -6,7 +6,7 @@ void Player::Initialize() {
 
 	gold = 0;
 
-	maxHealth = rand() % 90 + 21;
+	maxHealth = rand() % 21 + 90;
 	health = maxHealth;
 
 	maxStamina = 200 - maxHealth;
