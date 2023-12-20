@@ -22,6 +22,7 @@ void Dungeon(MainManager* mm) {
 		mm->p->agility = mm->p->maxAgility;
 	}
 
+
 	cout << "Health: " << mm->p->health << " / " << mm->p->maxHealth << endl;
 	cout << "Postions: " << mm->p->potion << " / " << mm->p->maxPotion << endl;
 	cout << "Moves: " << mm->p->agility << " / " << mm->p->maxAgility << endl << endl;
@@ -38,6 +39,7 @@ void Dungeon(MainManager* mm) {
 
 	cout << "Enter your action: ";
 	cin >> input;
+	cout << endl;
 
 	for (int i = 0; i < input.size(); i++) {
 		if (input[i] >= 'a' && input[i] <= 'z') {
@@ -50,7 +52,24 @@ void Dungeon(MainManager* mm) {
 		mm->p->agility -= 1;
 	}
 	else if (input == "P") {
+		if (mm->p->potion <= 0) {
+			cout << "You haven't potions" << endl;
+		}
+		else {
+			if (mm->p->health >= mm->p->maxHealth){
+				cout << "You have a max health" << endl << endl;
+				mm->p->potion--;
+			}
+			else if (((mm->p->maxHealth * 40) / 100) + mm->p->health > mm->p->maxHealth) {
+				mm->p->health += (mm->p->maxHealth - mm->p->health);
+				mm->p->potion--;
+			}
+			else if (((mm->p->maxHealth * 40) / 100) + mm->p->health < mm->p->maxHealth) {
+				mm->p->health += ((mm->p->maxHealth * 40) / 100);
+				mm->p->potion--;
+			}
 
+		}
 	}
 	else {
 		cout << "Icorect input" << endl << endl;
