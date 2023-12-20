@@ -77,7 +77,8 @@ void Combat(MainManager* mm) {
 	mm->currentScene = DUNGEON;
 }
 void Chest(MainManager* mm) {
-	
+	system("cls");
+
 	int chest;
 	for (int i = 0; i < mm->c.size(); i++) {
 		if (mm->p->position.X == mm->c[i]->position.X && mm->p->position.Y == mm->c[i]->position.Y) {
@@ -93,7 +94,31 @@ void Chest(MainManager* mm) {
 
 	cout << "        > " << gold << "gold!" << endl;
 	cout << "        > The Chest contains Gear!" << endl;
-	cout << "                > " << mm->c[chest]->gear->name << "" << endl;
+	cout << "                > " << mm->c[chest]->gear->name;
+
+	if (mm->c[chest]->gear->hp < 0) {
+		cout << " " << mm->c[chest]->gear->hp << "HP";
+	}
+	else if (mm->c[chest]->gear->hp > 0){
+		cout << " +" << mm->c[chest]->gear->hp << "HP";
+	}
+	
+	if (mm->c[chest]->gear->stamina < 0) {
+		cout << " " << mm->c[chest]->gear->stamina << " Stamina";
+	}
+	else if (mm->c[chest]->gear->stamina > 0) {
+		cout << " +" << mm->c[chest]->gear->stamina << " Stamina";
+	}
+
+	if (mm->c[chest]->gear->agility < 0) {
+		cout << " " << mm->c[chest]->gear->agility << " Agility";
+	}
+	else if (mm->c[chest]->gear->agility > 0) {
+		cout << " +" << mm->c[chest]->gear->agility << " Agility";
+	}
+
+	cout << endl;
+
 	
 	mm->p->gears.push_back(mm->c[chest]->gear);
 	mm->c[chest]->isLooted = true;
