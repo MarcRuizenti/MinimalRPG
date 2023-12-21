@@ -9,7 +9,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 		int attackPlayerStamina;
 
 		do {
-			cout << "Eneter the attack value " << "(" << mm->p->stamina << "): ";
+			cout << "Eneter the attack value " << "(Max " << mm->p->stamina << "): ";
 			cin >> attackPlayerStamina;
 			cout << endl;
 
@@ -37,11 +37,10 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 
 		}
 	}
-
 	else if (input == "D") {
 
 	}
-
 	else if (input == "R") {
 
 	}
+}
