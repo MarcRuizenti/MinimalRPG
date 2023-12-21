@@ -16,8 +16,9 @@ void MainManager::Initialize() {
 		c[i] = temp;
 	}
 
-	int cambios = 0;
+	int cambios;
 	do {
+		cambios = 0;
 		if (c[0]->gear == c[1]->gear) {
 			c[0]->gear->Initialize();
 			cambios++;
