@@ -130,6 +130,7 @@
     <ClCompile Include="CombatLogic.cpp" />
     <ClCompile Include="CreateMap.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyLogic.cpp" />
     <ClCompile Include="GameFuncions.cpp" />
     <ClCompile Include="Chest.cpp" />
     <ClCompile Include="Gear.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="CombatLogic.h" />
     <ClInclude Include="CreateMap.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyLogic.h" />
     <ClInclude Include="GameFunctions.h" />
     <ClInclude Include="Gear.h" />
     <ClInclude Include="MainManager.h" />
