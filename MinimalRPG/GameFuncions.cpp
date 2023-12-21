@@ -90,7 +90,74 @@ void Dungeon(MainManager* mm) {
 	system("pause");
 }
 void Combat(MainManager* mm) {
-	cout << "cOMABAT" << endl;
+	system("cls");
+	int enemy;
+	for (int i = 0; i < mm->enemies.size(); i++) {
+		if (mm->p->position.X == mm->enemies[i]->position.X && mm->p->position.Y == mm->enemies[i]->position.Y) {
+			enemy = i;
+		}
+	}
+
+	cout << "------ COMBAT ------" << endl << endl;
+
+	cout << "-- Enemy --" << endl;
+
+
+
+	cout << "----------------" << endl << endl;
+
+	cout << "-- Player --" << endl;
+
+
+
+
+	cout << "________________________________________" << endl << endl;
+	cout << "A -> Attack" << endl;
+	cout << "D -> Defend" << endl;
+	cout << "R -> Rest" << endl;
+	cout << "P -> Potion" << endl << endl;
+	
+	string input;
+
+	cout << "Enter your action: ";
+	cin >> input;
+	cout << endl;
+
+	for (int i = 0; i < input.size(); i++) {
+		if (input[i] >= 'a' && input[i] <= 'z') {
+			input[i] -= ' ';
+		}
+	}
+
+	if (input == "A" || input == "D" || input == "R" || input == "P") {
+
+	}
+	else if (input == "P") {
+		if (mm->p->potion <= 0) {
+			cout << "You haven't potions" << endl;
+		}
+		else {
+			if (mm->p->health >= mm->p->maxHealth) {
+				cout << "You have a max health" << endl << endl;
+				mm->p->potion--;
+			}
+			else if (((mm->p->maxHealth * 40) / 100) + mm->p->health > mm->p->maxHealth) {
+				mm->p->health += (mm->p->maxHealth - mm->p->health);
+				mm->p->potion--;
+			}
+			else if (((mm->p->maxHealth * 40) / 100) + mm->p->health < mm->p->maxHealth) {
+				mm->p->health += ((mm->p->maxHealth * 40) / 100);
+				mm->p->potion--;
+			}
+
+		}
+	}
+	else {
+		cout << "Icorect input" << endl << endl;
+	}
+
+
+
 
 	system("pause");
 	mm->currentScene = DUNGEON;
