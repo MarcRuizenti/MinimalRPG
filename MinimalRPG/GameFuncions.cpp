@@ -128,7 +128,7 @@ void Combat(MainManager* mm) {
 	}
 
 	if (input == "A" || input == "D" || input == "R" || input == "P") {
-		CombatLogic(input);
+		CombatLogic(mm, input, enemy);
 	}
 	else {
 		cout << "Icorect input" << endl << endl;

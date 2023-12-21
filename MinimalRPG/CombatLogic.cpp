@@ -1,6 +1,7 @@
 #include "CombatLogic.h"
 
-void CombatLogic(string input) {
+void CombatLogic(MainManager* mm, string input, int enemy) {
 
+	if (input == "A") {
 
-}
+	}
