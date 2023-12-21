@@ -1,6 +1,7 @@
 #include "GameFunctions.h"
 #include "MostrarMapa.h"
 #include "Move.h"
+#include "CombatLogic.h"
 
 void Dungeon(MainManager* mm) {
 	system("cls");
@@ -103,12 +104,9 @@ void Combat(MainManager* mm) {
 	cout << "-- Enemy --" << endl;
 
 
-
 	cout << "----------------" << endl << endl;
 
 	cout << "-- Player --" << endl;
-
-
 
 
 	cout << "________________________________________" << endl << endl;
@@ -130,34 +128,11 @@ void Combat(MainManager* mm) {
 	}
 
 	if (input == "A" || input == "D" || input == "R" || input == "P") {
-
-	}
-	else if (input == "P") {
-		if (mm->p->potion <= 0) {
-			cout << "You haven't potions" << endl;
-		}
-		else {
-			if (mm->p->health >= mm->p->maxHealth) {
-				cout << "You have a max health" << endl << endl;
-				mm->p->potion--;
-			}
-			else if (((mm->p->maxHealth * 40) / 100) + mm->p->health > mm->p->maxHealth) {
-				mm->p->health += (mm->p->maxHealth - mm->p->health);
-				mm->p->potion--;
-			}
-			else if (((mm->p->maxHealth * 40) / 100) + mm->p->health < mm->p->maxHealth) {
-				mm->p->health += ((mm->p->maxHealth * 40) / 100);
-				mm->p->potion--;
-			}
-
-		}
+		CombatLogic(input);
 	}
 	else {
 		cout << "Icorect input" << endl << endl;
 	}
-
-
-
 
 	system("pause");
 	mm->currentScene = DUNGEON;
