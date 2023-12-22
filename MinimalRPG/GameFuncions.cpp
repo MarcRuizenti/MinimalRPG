@@ -91,58 +91,67 @@ void Dungeon(MainManager* mm) {
 	system("pause");
 }
 void Combat(MainManager* mm) {
-	system("cls");
-	int enemy;
-	for (int i = 0; i < mm->enemies.size(); i++) {
-		if (mm->p->position.X == mm->enemies[i]->position.X && mm->p->position.Y == mm->enemies[i]->position.Y) {
-			enemy = i;
-		}
-	}
-
-	cout << "------ COMBAT ------" << endl << endl;
-
-	cout << "-- Enemy --" << endl << endl;
-	cout << mm->enemies[enemy]->health << endl;
-	cout << mm->enemies[enemy]->stamina << endl << endl;
-
-	cout << "----------------" << endl << endl;
 	
-	cout << "-- Player --" << endl << endl;
-
-	cout << mm->p->health << endl;
-	cout << mm->p->stamina << endl << endl;
-
-	cout << "________________________________________" << endl << endl;
-	cout << "A -> Attack" << endl;
-	cout << "D -> Defend" << endl;
-	cout << "R -> Rest" << endl;
-	cout << "P -> Potion" << endl << endl;
-	
-	string input;
-
-	cout << "Enter your action: ";
-	cin >> input;
-	cout << endl;
-
-	for (int i = 0; i < input.size(); i++) {
-		if (input[i] >= 'a' && input[i] <= 'z') {
-			input[i] -= ' ';
+	while (mm->currentScene == COMBAT) {
+		system("cls");
+		int enemy;
+		for (int i = 0; i < mm->enemies.size(); i++) {
+			if (mm->p->position.X == mm->enemies[i]->position.X && mm->p->position.Y == mm->enemies[i]->position.Y) {
+				enemy = i;
+			}
 		}
-	}
 
-	if (input == "A" || input == "D" || input == "R" || input == "P") {
-		CombatLogic(mm, input, enemy);
-	}
-	else {
-		cout << "Icorect input" << endl << endl;
-	}
+		cout << "------ COMBAT ------" << endl << endl;
 
-	system("pause");
-	mm->currentScene = DUNGEON;
+		cout << "-- Enemy --" << endl << endl;
+		cout << mm->enemies[enemy]->health << endl;
+		cout << mm->enemies[enemy]->stamina << endl << endl;
+
+		cout << "----------------" << endl << endl;
+
+		cout << "-- Player --" << endl << endl;
+
+		cout << mm->p->health << endl;
+		cout << mm->p->stamina << endl << endl;
+
+		cout << "________________________________________" << endl << endl;
+		cout << "A -> Attack" << endl;
+		cout << "D -> Defend" << endl;
+		cout << "R -> Rest" << endl;
+		cout << "P -> Potion" << endl << endl;
+
+		string input;
+
+		cout << "Enter your action: ";
+		cin >> input;
+		cout << endl;
+
+		for (int i = 0; i < input.size(); i++) {
+			if (input[i] >= 'a' && input[i] <= 'z') {
+				input[i] -= ' ';
+			}
+		}
+
+		if (input == "A" || input == "D" || input == "R" || input == "P") {
+			CombatLogic(mm, input, enemy);
+		}
+		else {
+			cout << "Icorect input" << endl << endl;
+		}
+
+		if (mm->p->health <= 0) {
+			mm->currentScene = GAMEOVER;
+		}
+		else if (mm->enemies[enemy]->health <= 0) {
+			mm->currentScene = DUNGEON;
+		}
+		system("pause");
+	}
+	
 }
 void Chest(MainManager* mm) {
 	system("cls");
-
+	
 	int chest;
 	for (int i = 0; i < mm->c.size(); i++) {
 		if (mm->p->position.X == mm->c[i]->position.X && mm->p->position.Y == mm->c[i]->position.Y) {
