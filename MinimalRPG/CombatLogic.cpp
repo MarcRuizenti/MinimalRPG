@@ -31,7 +31,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 			}
 		}
 		else if (enemyatack == 'R') {
-
+			
 		}
 		else if (enemyatack == 'D') {
 
