@@ -53,8 +53,8 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 			}
 			else {
 				mm->enemies[enemy]->stamina += (mm->enemies[enemy]->staminaMax * 25) / 100;
-				cout << "You strike the enemy but he has defended himself, the enemy receive " << attackPlayerStamina - ((attackPlayerStamina * 75) / 100) << " damage" << endl;
 			}
+			cout << "You strike the enemy but he has defended himself, the enemy receive " << attackPlayerStamina - ((attackPlayerStamina * 75) / 100) << " damage" << endl;
 			mm->p->stamina -= attackPlayerStamina;
 			
 		}
@@ -69,8 +69,8 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 			}
 			else {
 				mm->p->stamina += (mm->p->maxStamina * 25) / 100;
-				cout << "You defend the enemy blow, but receive " << enemyAttackStamina - ((enemyAttackStamina * 75) / 100) << " damage" << endl;
 			}
+			cout << "You defend the enemy blow, but receive " << enemyAttackStamina - ((enemyAttackStamina * 75) / 100) << " damage" << endl;
 		}
 		else if (enemyatack == 'R') {
 			mm->enemies[enemy]->stamina = mm->enemies[enemy]->staminaMax;
