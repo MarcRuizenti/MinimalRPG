@@ -3,7 +3,11 @@
 
 void CombatLogic(MainManager* mm, string input, int enemy) {
 	char enemyatack = SelectAtackEnemy(mm, enemy);
-	int enemyAttackStamina = (mm->enemies[enemy]->stamina * 20) / 100 + rand() + mm->enemies[enemy]->stamina - ((mm->enemies[enemy]->stamina * 20) / 100) + 1;
+
+	int minimDamage = (mm->enemies[enemy]->stamina * 20) / 100;
+	int maxDamage = mm->enemies[enemy]->stamina;
+
+	int enemyAttackStamina = minimDamage + rand() % ((maxDamage + 1) - minimDamage);
 	
 	if (input == "A") {
 		bool valid = false;
@@ -14,7 +18,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 			cin >> attackPlayerStamina;
 			cout << endl;
 
-			valid = mm->p->stamina > attackPlayerStamina && attackPlayerStamina >= 0;
+			valid = mm->p->stamina >= attackPlayerStamina && attackPlayerStamina >= 0;
 
 			if (!valid) {
 				cout << "The number is incorrect, try again" << endl << endl;
@@ -38,7 +42,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 		}
 		else if (enemyatack == 'R') {
 			mm->p->stamina -= attackPlayerStamina;
-			mm->enemies[enemy]->health == mm->enemies[enemy]->healthMax;
+			mm->enemies[enemy]->stamina == mm->enemies[enemy]->staminaMax;
 			mm->enemies[enemy]->health -= attackPlayerStamina;
 			cout << "You strike the unprepared enemy dealing " << attackPlayerStamina << " damage" << endl;
 		}
@@ -58,7 +62,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 			cout << "You defend the enemy blow, but receive " << enemyAttackStamina - ((enemyAttackStamina * 75) / 100) << " damage" << endl;
 		}
 		else if (enemyatack == 'R') {
-			mm->enemies[enemy]->health == mm->enemies[enemy]->healthMax;
+			mm->enemies[enemy]->stamina == mm->enemies[enemy]->staminaMax;
 			mm->p->stamina += (mm->p->maxStamina * 25) / 100;
 			cout << "You defend while the enemy catches a breath! It seems ready to strike!" << endl;
 		}
@@ -73,17 +77,17 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 		if (enemyatack == 'A') {
 			mm->enemies[enemy]->stamina -= enemyAttackStamina;
 			mm->p->health -= enemyAttackStamina;
-			mm->p->health == mm->p->maxHealth;
+			mm->p->stamina == mm->p->maxStamina;
 			cout << "You rest when the enemy hits you, striking for " << enemyAttackStamina << "damage" << endl;
 		}
 		else if (enemyatack == 'R') {
-			mm->enemies[enemy]->health == mm->enemies[enemy]->healthMax;
-			mm->p->health == mm->p->maxHealth;
+			mm->enemies[enemy]->stamina == mm->enemies[enemy]->staminaMax;
+			mm->p->stamina == mm->p->maxStamina;
 			cout << "You both rest, gathering up for a clash!" << endl;
 		}
 		else if (enemyatack == 'D') {
 			mm->enemies[enemy]->stamina += (mm->enemies[enemy]->staminaMax * 25) / 100;
-			mm->p->health == mm->p->maxHealth;
+			mm->p->stamina == mm->p->maxStamina;
 			cout << "You rest when the enemy defend, 300 IQ play!" << endl;
 		}
 	}
