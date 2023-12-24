@@ -104,8 +104,8 @@ void Combat(MainManager* mm) {
 		cout << "------ COMBAT ------" << endl << endl;
 
 		cout << "-- Enemy --" << endl << endl;
-		cout << mm->enemies[enemy]->health << endl;
-		cout << mm->enemies[enemy]->stamina << endl << endl;
+		cout << "?" << endl;
+		cout << "?" << endl << endl;
 
 		cout << "----------------" << endl << endl;
 
