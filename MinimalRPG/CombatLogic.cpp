@@ -103,12 +103,12 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 		if (enemyatack == 'A') {
 			mm->enemies[enemy]->stamina -= enemyAttackStamina;
 			mm->p->health -= enemyAttackStamina;
-			mm->p->stamina == mm->p->maxStamina;
+			mm->p->stamina = mm->p->maxStamina;
 			cout << "You rest when the enemy hits you, striking for " << enemyAttackStamina << " damage" << endl;
 		}
 		else if (enemyatack == 'R') {
 			mm->enemies[enemy]->stamina = mm->enemies[enemy]->staminaMax;
-			mm->p->stamina == mm->p->maxStamina;
+			mm->p->stamina = mm->p->maxStamina;
 			cout << "You both rest, gathering up for a clash!" << endl;
 		}
 		else if (enemyatack == 'D') {

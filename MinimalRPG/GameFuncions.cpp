@@ -77,17 +77,36 @@ void Dungeon(MainManager* mm) {
 	}
 
 	for (int i = 0; i < mm->c.size(); i++) {
-		if (mm->p->position.X == mm->c[i]->position.X && mm->p->position.Y == mm->c[i]->position.Y) {
+		if (mm->p->position.X == mm->c[i]->position.X && mm->p->position.Y == mm->c[i]->position.Y && !mm->c[i]->isLooted) {
 			mm->currentScene = CHEST;
 		}
 	}
 
 	for (int i = 0; i < mm->enemies.size(); i++) {
-		if (mm->p->position.X == mm->enemies[i]->position.X && mm->p->position.Y == mm->enemies[i]->position.Y) {
+		if (mm->p->position.X == mm->enemies[i]->position.X && mm->p->position.Y == mm->enemies[i]->position.Y && !mm->enemies[i]->isDead) {
 			mm->currentScene = COMBAT;
 		}
 	}
 
+	bool allDead = true;
+
+	for (int i = 0; i < mm->enemies.size(); i++) {
+		if (!mm->enemies[i]->isDead) {
+			allDead = false;
+		}
+	}
+
+	bool allLooted = true;
+
+	for (int i = 0; i < mm->c.size(); i++) {
+		if (!mm->c[i]->isLooted) {
+			allLooted = false;
+		}
+	}
+
+	if (allDead && allLooted) {
+		mm->currentScene = GAMEOVER;
+	}
 	system("pause");
 }
 void Combat(MainManager* mm) {
@@ -144,6 +163,7 @@ void Combat(MainManager* mm) {
 		}
 		else if (mm->enemies[enemy]->health <= 0) {
 			mm->currentScene = DUNGEON;
+			mm->enemies[enemy]->isDead = true;
 		}
 		system("pause");
 	}
@@ -214,5 +234,7 @@ void Chest(MainManager* mm) {
 	mm->currentScene = DUNGEON;
 }
 void GameOver(MainManager* mm) {
-
+	system("cls");
+	cout << "Game Over" << endl;
+	system("pause");
 }
