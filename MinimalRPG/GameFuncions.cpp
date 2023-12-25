@@ -123,15 +123,84 @@ void Combat(MainManager* mm) {
 		cout << "------ COMBAT ------" << endl << endl;
 
 		cout << "-- Enemy --" << endl << endl;
-		cout << "[==========] ? HP" << endl;
+
+		if (mm->enemies[enemy]->health == mm->enemies[enemy]->healthMax) {
+			cout << "[==========] ";
+		}
+		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 90) / 100) {
+			cout << "[========= ] ";
+		}
+		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 80) / 100) {
+			cout << "[========  ] ";
+		}
+		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 70) / 100) {
+			cout << "[=======   ] ";
+		}
+		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 60) / 100) {
+			cout << "[======    ] ";
+		}
+		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 50) / 100) {
+			cout << "[=====     ] ";
+		}
+		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 40) / 100) {
+			cout << "[====      ] ";
+		}
+		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 30) / 100) {
+			cout << "[===       ] ";
+		}
+		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 20) / 100) {
+			cout << "[==        ] ";
+		}
+		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 10) / 100) {
+			cout << "[=         ] ";
+		}
+		else if (mm->enemies[enemy]->health < (mm->enemies[enemy]->healthMax * 10) / 100) {
+			cout << "[~         ] ";
+		}
+		cout << "? HP" << endl;
+
 		cout << "[>>>>>>>>>>] ? Stamina" << endl << endl;
 
 		cout << "----------------" << endl << endl;
 
 		cout << "-- Player --" << endl << endl;
 
-		cout << "[==========]" << mm->p->health << " / " << mm->p->maxHealth << endl;
-		cout << "[>>>>>>>>>>]" << mm->p->stamina << " / " << mm->p->maxStamina << endl << endl;
+		if (mm->p->health == mm->p->maxHealth) {
+			cout << "[==========] ";
+		}
+		else if (mm->p->health > (mm->p->maxHealth * 90) / 100) {
+			cout << "[========= ] ";
+		}
+		else if (mm->p->health > (mm->p->maxHealth * 80) / 100) {
+			cout << "[========  ] ";
+		}
+		else if (mm->p->health > (mm->p->maxHealth * 70) / 100) {
+			cout << "[=======   ] ";
+		}
+		else if (mm->p->health > (mm->p->maxHealth * 60) / 100) {
+			cout << "[======    ] ";
+		}
+		else if (mm->p->health > (mm->p->maxHealth * 50) / 100) {
+			cout << "[=====     ] ";
+		}
+		else if (mm->p->health > (mm->p->maxHealth * 40) / 100) {
+			cout << "[====      ] ";
+		}
+		else if (mm->p->health > (mm->p->maxHealth * 30) / 100) {
+			cout << "[===       ] ";
+		}
+		else if (mm->p->health > (mm->p->maxHealth * 20) / 100) {
+			cout << "[==        ] ";
+		}
+		else if (mm->p->health > (mm->p->maxHealth * 10) / 100) {
+			cout << "[=         ] ";
+		}
+		else if (mm->p->health < (mm->p->maxHealth * 10) / 100) {
+			cout << "[~         ] ";
+		}
+		cout << mm->p->health << " / " << mm->p->maxHealth << endl;
+
+		cout << "[>>>>>>>>>>] " << mm->p->stamina << " / " << mm->p->maxStamina << endl << endl;
 
 		cout << "________________________________________" << endl << endl;
 		cout << "A -> Attack" << endl;
