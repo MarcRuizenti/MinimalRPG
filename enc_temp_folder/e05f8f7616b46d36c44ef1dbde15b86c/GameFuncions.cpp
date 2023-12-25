@@ -159,7 +159,7 @@ void Combat(MainManager* mm) {
 		}
 		cout << "? HP" << endl;
 
-		if (mm->enemies[enemy]->stamina == mm->enemies[enemy]->staminaMax) {
+		if (mm->enemies[enemy]->stamina == mm->enemies[enemy]->healthMax) {
 			cout << "[>>>>>>>>>>] ";
 		}
 		else if (mm->enemies[enemy]->stamina > (mm->enemies[enemy]->staminaMax * 90) / 100) {
