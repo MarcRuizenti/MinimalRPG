@@ -19,7 +19,7 @@ void Move(MainManager* mm, string input, int sizeX, int sizeY) {
 		}
 	}
 	else if (input == "S"){
-		if (mm->p->position.Y + 1 > sizeY) {
+		if (mm->p->position.Y + 1 > sizeY - 1) {
 			cout << "Te salres del mapa" << endl;
 		}
 		else {
@@ -27,7 +27,7 @@ void Move(MainManager* mm, string input, int sizeX, int sizeY) {
 		}
 	}
 	else if (input == "D") {
-		if (mm->p->position.X + 1 > sizeX) {
+		if (mm->p->position.X + 1 > sizeX - 1) {
 			cout << "Te salres del mapa" << endl;
 
 		}
