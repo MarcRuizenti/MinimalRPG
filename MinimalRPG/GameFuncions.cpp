@@ -158,7 +158,7 @@ void Combat(MainManager* mm) {
 			cout << "[~         ] ";
 		}
 		cout << "? HP" << endl;
-
+		
 		if (mm->enemies[enemy]->stamina == mm->enemies[enemy]->staminaMax) {
 			cout << "[>>>>>>>>>>] ";
 		}
@@ -191,6 +191,9 @@ void Combat(MainManager* mm) {
 		}
 		else if (mm->enemies[enemy]->stamina < (mm->enemies[enemy]->staminaMax * 10) / 100) {
 			cout << "[<         ] ";
+		}
+		else if (mm->enemies[enemy]->stamina == 0) {
+			cout << "[          ] ";
 		}
 		cout << "? Stamina" << endl << endl;
 
@@ -265,6 +268,9 @@ void Combat(MainManager* mm) {
 		}
 		else if (mm->p->stamina < (mm->p->maxStamina * 10) / 100) {
 			cout << "[<         ] ";
+		}
+		else if (mm->p->stamina == 0) {
+			cout << "[          ] ";
 		}
 		cout << mm->p->stamina << " / " << mm->p->maxStamina << endl << endl;
 
