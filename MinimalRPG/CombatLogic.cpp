@@ -122,4 +122,81 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 			cout << "You rest when the enemy defend, 300 IQ play!" << endl;
 		}
 	}
+	else if (input == "P") {
+		if (enemyatack == 'A') {
+			mm->enemies[enemy]->stamina -= enemyAttackStamina;
+			mm->p->health -= enemyAttackStamina;
+			
+			if (mm->p->potion <= 0) {
+				cout << "You haven't potions" << endl;
+			}
+			else {
+				if (mm->p->health >= mm->p->maxHealth) {
+					cout << "You have a max health" << endl << endl;
+					mm->p->potion--;
+				}
+				else if (((mm->p->maxHealth * 40) / 100) + mm->p->health > mm->p->maxHealth) {
+					mm->p->health += (mm->p->maxHealth - mm->p->health);
+					mm->p->potion--;
+				}
+				else if (((mm->p->maxHealth * 40) / 100) + mm->p->health < mm->p->maxHealth) {
+					mm->p->health += ((mm->p->maxHealth * 40) / 100);
+					mm->p->potion--;
+				}
+			}
+
+			cout << "You use potion when the enemy hits you, striking for " << enemyAttackStamina << " damage" << endl;
+		}
+		else if (enemyatack == 'R') {
+			mm->enemies[enemy]->stamina = mm->enemies[enemy]->staminaMax;
+			
+			if (mm->p->potion <= 0) {
+				cout << "You haven't potions" << endl;
+			}
+			else {
+				if (mm->p->health >= mm->p->maxHealth) {
+					cout << "You have a max health" << endl << endl;
+					mm->p->potion--;
+				}
+				else if (((mm->p->maxHealth * 40) / 100) + mm->p->health > mm->p->maxHealth) {
+					mm->p->health += (mm->p->maxHealth - mm->p->health);
+					mm->p->potion--;
+				}
+				else if (((mm->p->maxHealth * 40) / 100) + mm->p->health < mm->p->maxHealth) {
+					mm->p->health += ((mm->p->maxHealth * 40) / 100);
+					mm->p->potion--;
+				}
+			}
+
+			cout << "You both rest, gathering up for a clash!" << endl;
+		}
+		else if (enemyatack == 'D') {
+			if (mm->enemies[enemy]->stamina + (mm->enemies[enemy]->stamina * 25) / 100 > mm->enemies[enemy]->staminaMax) {
+				mm->enemies[enemy]->stamina += mm->enemies[enemy]->staminaMax - mm->enemies[enemy]->stamina;
+			}
+			else {
+				mm->enemies[enemy]->stamina += (mm->enemies[enemy]->staminaMax * 25) / 100;
+			}
+
+			if (mm->p->potion <= 0) {
+				cout << "You haven't potions" << endl;
+			}
+			else {
+				if (mm->p->health >= mm->p->maxHealth) {
+					cout << "You have a max health" << endl << endl;
+					mm->p->potion--;
+				}
+				else if (((mm->p->maxHealth * 40) / 100) + mm->p->health > mm->p->maxHealth) {
+					mm->p->health += (mm->p->maxHealth - mm->p->health);
+					mm->p->potion--;
+				}
+				else if (((mm->p->maxHealth * 40) / 100) + mm->p->health < mm->p->maxHealth) {
+					mm->p->health += ((mm->p->maxHealth * 40) / 100);
+					mm->p->potion--;
+				}
+			}
+
+			cout << "You rest when the enemy defend, 300 IQ play!" << endl;
+		}
+	}
 }

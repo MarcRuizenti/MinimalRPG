@@ -69,7 +69,6 @@ void Dungeon(MainManager* mm) {
 				mm->p->health += ((mm->p->maxHealth * 40) / 100);
 				mm->p->potion--;
 			}
-
 		}
 	}
 	else {
