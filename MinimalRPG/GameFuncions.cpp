@@ -108,6 +108,31 @@ void Dungeon(MainManager* mm) {
 	}
 	system("pause");
 }
+
+void ProgressBarHealth(int current, int max) {
+	const int barWidth = 10;
+	int barLength = barWidth * current / max;
+
+	std::cout << "[";
+	for (int i = 0; i < barWidth; ++i) {
+		std::cout << (i < barLength ? "=" : " ");
+	}
+	std::cout << "] ";
+
+}
+
+void ProgressBarStamina(int current, int max) {
+	const int barWidth = 10;
+	int barLength = barWidth * current / max;
+
+	std::cout << "[";
+	for (int i = 0; i < barWidth; ++i) {
+		std::cout << (i < barLength ? ">" : " ");
+	}
+	std::cout << "] ";
+
+}
+
 void Combat(MainManager* mm) {
 	
 	while (mm->currentScene == COMBAT) {
@@ -123,154 +148,20 @@ void Combat(MainManager* mm) {
 
 		cout << "-- Enemy --" << endl << endl;
 
-		if (mm->enemies[enemy]->health == mm->enemies[enemy]->healthMax) {
-			cout << "[==========] ";
-		}
-		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 90) / 100) {
-			cout << "[========= ] ";
-		}
-		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 80) / 100) {
-			cout << "[========  ] ";
-		}
-		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 70) / 100) {
-			cout << "[=======   ] ";
-		}
-		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 60) / 100) {
-			cout << "[======    ] ";
-		}
-		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 50) / 100) {
-			cout << "[=====     ] ";
-		}
-		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 40) / 100) {
-			cout << "[====      ] ";
-		}
-		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 30) / 100) {
-			cout << "[===       ] ";
-		}
-		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 20) / 100) {
-			cout << "[==        ] ";
-		}
-		else if (mm->enemies[enemy]->health > (mm->enemies[enemy]->healthMax * 10) / 100) {
-			cout << "[=         ] ";
-		}
-		else if (mm->enemies[enemy]->health < (mm->enemies[enemy]->healthMax * 10) / 100) {
-			cout << "[~         ] ";
-		}
+		ProgressBarHealth(mm->enemies[enemy]->health, mm->enemies[enemy]->healthMax);
 		cout << "? HP" << endl;
 		
-		if (mm->enemies[enemy]->stamina == mm->enemies[enemy]->staminaMax) {
-			cout << "[>>>>>>>>>>] ";
-		}
-		else if (mm->enemies[enemy]->stamina > (mm->enemies[enemy]->staminaMax * 90) / 100) {
-			cout << "[>>>>>>>>> ] ";
-		}
-		else if (mm->enemies[enemy]->stamina > (mm->enemies[enemy]->staminaMax * 80) / 100) {
-			cout << "[>>>>>>>>  ] ";
-		}
-		else if (mm->enemies[enemy]->stamina > (mm->enemies[enemy]->staminaMax * 70) / 100) {
-			cout << "[>>>>>>>   ] ";
-		}
-		else if (mm->enemies[enemy]->stamina > (mm->enemies[enemy]->staminaMax * 60) / 100) {
-			cout << "[>>>>>>    ] ";
-		}
-		else if (mm->enemies[enemy]->stamina > (mm->enemies[enemy]->staminaMax * 50) / 100) {
-			cout << "[>>>>>     ] ";
-		}
-		else if (mm->enemies[enemy]->stamina > (mm->enemies[enemy]->staminaMax * 40) / 100) {
-			cout << "[>>>>      ] ";
-		}
-		else if (mm->enemies[enemy]->stamina > (mm->enemies[enemy]->staminaMax * 30) / 100) {
-			cout << "[>>>       ] ";
-		}
-		else if (mm->enemies[enemy]->stamina > (mm->enemies[enemy]->staminaMax * 20) / 100) {
-			cout << "[>>        ] ";
-		}
-		else if (mm->enemies[enemy]->stamina > (mm->enemies[enemy]->staminaMax * 10) / 100) {
-			cout << "[>         ] ";
-		}
-		else if (mm->enemies[enemy]->stamina < (mm->enemies[enemy]->staminaMax * 10) / 100) {
-			cout << "[<         ] ";
-		}
-		else if (mm->enemies[enemy]->stamina == 0) {
-			cout << "[          ] ";
-		}
+		ProgressBarStamina(mm->enemies[enemy]->stamina, mm->enemies[enemy]->staminaMax);
 		cout << "? Stamina" << endl << endl;
 
 		cout << "----------------" << endl << endl;
 
 		cout << "-- Player --" << endl << endl;
-
-		if (mm->p->health == mm->p->maxHealth) {
-			cout << "[==========] ";
-		}
-		else if (mm->p->health > (mm->p->maxHealth * 90) / 100) {
-			cout << "[========= ] ";
-		}
-		else if (mm->p->health > (mm->p->maxHealth * 80) / 100) {
-			cout << "[========  ] ";
-		}
-		else if (mm->p->health > (mm->p->maxHealth * 70) / 100) {
-			cout << "[=======   ] ";
-		}
-		else if (mm->p->health > (mm->p->maxHealth * 60) / 100) {
-			cout << "[======    ] ";
-		}
-		else if (mm->p->health > (mm->p->maxHealth * 50) / 100) {
-			cout << "[=====     ] ";
-		}
-		else if (mm->p->health > (mm->p->maxHealth * 40) / 100) {
-			cout << "[====      ] ";
-		}
-		else if (mm->p->health > (mm->p->maxHealth * 30) / 100) {
-			cout << "[===       ] ";
-		}
-		else if (mm->p->health > (mm->p->maxHealth * 20) / 100) {
-			cout << "[==        ] ";
-		}
-		else if (mm->p->health > (mm->p->maxHealth * 10) / 100) {
-			cout << "[=         ] ";
-		}
-		else if (mm->p->health < (mm->p->maxHealth * 10) / 100) {
-			cout << "[~         ] ";
-		}
+		
+		ProgressBarHealth(mm->p->health, mm->p->maxHealth);
 		cout << mm->p->health << " / " << mm->p->maxHealth << endl;
 
-		if (mm->p->stamina == mm->p->maxStamina) {
-			cout << "[>>>>>>>>>>] ";
-		}
-		else if (mm->p->stamina > (mm->p->maxStamina * 90) / 100) {
-			cout << "[>>>>>>>>> ] ";
-		}
-		else if (mm->p->stamina > (mm->p->maxStamina * 80) / 100) {
-			cout << "[>>>>>>>>  ] ";
-		}
-		else if (mm->p->stamina > (mm->p->maxStamina * 70) / 100) {
-			cout << "[>>>>>>>   ] ";
-		}
-		else if (mm->p->stamina > (mm->p->maxStamina * 60) / 100) {
-			cout << "[>>>>>>    ] ";
-		}
-		else if (mm->p->stamina > (mm->p->maxStamina * 50) / 100) {
-			cout << "[>>>>>     ] ";
-		}
-		else if (mm->p->stamina > (mm->p->maxStamina * 40) / 100) {
-			cout << "[>>>>      ] ";
-		}
-		else if (mm->p->stamina > (mm->p->maxStamina * 30) / 100) {
-			cout << "[>>>       ] ";
-		}
-		else if (mm->p->stamina > (mm->p->maxStamina * 20) / 100) {
-			cout << "[>>        ] ";
-		}
-		else if (mm->p->stamina > (mm->p->maxStamina * 10) / 100) {
-			cout << "[>         ] ";
-		}
-		else if (mm->p->stamina < (mm->p->maxStamina * 10) / 100) {
-			cout << "[<         ] ";
-		}
-		else if (mm->p->stamina == 0) {
-			cout << "[          ] ";
-		}
+		ProgressBarStamina(mm->p->stamina, mm->p->maxStamina);
 		cout << mm->p->stamina << " / " << mm->p->maxStamina << endl << endl;
 
 		cout << "________________________________________" << endl << endl;
