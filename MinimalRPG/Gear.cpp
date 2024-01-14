@@ -8,29 +8,29 @@ void Gear::Initialize() {
 
 	switch (randomGear)
 	{
-	case RICHARDHATRED:
-		name = "Richard’s Hatred";
+	case RICHARDSBLESSING:
+		name = "Richard’s blessing";
 		goldValue = 200;
 		hp = 20;
 		stamina = 40;
 		agility = 1;
 		break;
-	case SWIFTBOOTS:
-		name = "Swift boots";
+	case SHOESPOCHAS:
+		name = "Shoes pochas";
 		goldValue = 10;
 		hp = -10;
 		stamina = -5;
 		agility = 1;
 		break;
-	case WHITEPOWDER:
-		name = "White Powder";
+	case BERSERKPOWDER:
+		name = "Berserk Powder";
 		goldValue = 150;
 		hp = -20;
 		stamina = 20;
 		agility = 1;
 		break;
-	case RADEVMUG:
-		name = "Radev’s Mug";
+	case RICHARDCURSE:
+		name = "Richard's curse";
 		goldValue = -300;
 		hp = -20;
 		stamina = -40;

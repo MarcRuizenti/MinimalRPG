@@ -1,7 +1,7 @@
 #pragma once
 #include "MapPosition.h"
 
-enum gears {RICHARDHATRED, SWIFTBOOTS, WHITEPOWDER, RADEVMUG};
+enum gears {RICHARDSBLESSING, SHOESPOCHAS, BERSERKPOWDER, RICHARDCURSE};
 
 struct Gear
 {

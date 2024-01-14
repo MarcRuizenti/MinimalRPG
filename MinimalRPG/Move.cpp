@@ -3,7 +3,7 @@
 void Move(MainManager* mm, string input, int sizeX, int sizeY) {
 	if (input == "W") {
 		if (mm->p->position.Y - 1 < 0) {
-			cout << "Te salres del mapa" << endl;
+			cout << "YOU CAN'T GO THERE, you have to defeat all the enemies :(" << endl;
 			return;
 		}
 		else {
@@ -12,7 +12,7 @@ void Move(MainManager* mm, string input, int sizeX, int sizeY) {
 	}
 	else if (input == "A") {
 		if (mm->p->position.X - 1 < 0) {
-			cout << "Te salres del mapa" << endl;
+			cout << "YOU CAN'T GO THERE, you have to defeat all the enemies :(" << endl;
 		}
 		else{
 			mm->p->position.X -= 1;
@@ -20,7 +20,7 @@ void Move(MainManager* mm, string input, int sizeX, int sizeY) {
 	}
 	else if (input == "S"){
 		if (mm->p->position.Y + 1 > sizeY - 1) {
-			cout << "Te salres del mapa" << endl;
+			cout << "YOU CAN'T GO THERE, you have to defeat all the enemies :(" << endl;
 		}
 		else {
 			mm->p->position.Y += 1;
@@ -28,7 +28,7 @@ void Move(MainManager* mm, string input, int sizeX, int sizeY) {
 	}
 	else if (input == "D") {
 		if (mm->p->position.X + 1 > sizeX - 1) {
-			cout << "Te salres del mapa" << endl;
+			cout << "YOU CAN'T GO THERE, you have to defeat all the enemies :(" << endl;
 
 		}
 		else {

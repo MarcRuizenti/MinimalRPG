@@ -89,5 +89,8 @@
     <ClInclude Include="EnemyLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="H&amp;SBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

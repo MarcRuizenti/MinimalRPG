@@ -2,6 +2,7 @@
 #include "MostrarMapa.h"
 #include "Move.h"
 #include "CombatLogic.h"
+#include "H&SBar.h"
 
 void Dungeon(MainManager* mm) {
 	system("cls");
@@ -107,30 +108,6 @@ void Dungeon(MainManager* mm) {
 		mm->currentScene = GAMEOVER;
 	}
 	system("pause");
-}
-
-void ProgressBarHealth(int current, int max) {
-	const int barWidth = 10;
-	int barLength = barWidth * current / max;
-
-	std::cout << "[";
-	for (int i = 0; i < barWidth; ++i) {
-		std::cout << (i < barLength ? "=" : " ");
-	}
-	std::cout << "] ";
-
-}
-
-void ProgressBarStamina(int current, int max) {
-	const int barWidth = 10;
-	int barLength = barWidth * current / max;
-
-	std::cout << "[";
-	for (int i = 0; i < barWidth; ++i) {
-		std::cout << (i < barLength ? ">" : " ");
-	}
-	std::cout << "] ";
-
 }
 
 void Combat(MainManager* mm) {

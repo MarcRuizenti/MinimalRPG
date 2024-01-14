@@ -44,7 +44,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 			mm->p->stamina -= attackPlayerStamina;
 			mm->enemies[enemy]->stamina = mm->enemies[enemy]->staminaMax;
 			mm->enemies[enemy]->health -= attackPlayerStamina;
-			cout << "You attacked the enemy while he was resting, nice predict " << attackPlayerStamina << " damage" << endl;
+			cout << "You attacked the enemy while he was resting, nice predict" << attackPlayerStamina << " damage" << endl;
 		}
 		else if (enemyatack == 'D') {
 			mm->enemies[enemy]->health -= attackPlayerStamina - ((attackPlayerStamina * 75) / 100);
@@ -80,7 +80,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 			else {
 				mm->p->stamina += (mm->p->maxStamina * 25) / 100;
 			}
-			cout << "You defended yourself when the enemy was resting, he read your mind :( " << endl;
+			cout << "You defended yourself when the enemy was resting, he read your mind :(" << endl;
 		}
 		else if (enemyatack == 'D') {
 			if (mm->enemies[enemy]->stamina + (mm->enemies[enemy]->stamina * 25) / 100 > mm->enemies[enemy]->staminaMax) {
@@ -95,7 +95,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 			else {
 				mm->p->stamina += (mm->p->maxStamina * 25) / 100;
 			}
-			cout << "You both defenD... EPIC METAPODS FIGHT " << endl;
+			cout << "You both defenD... EPIC METAPODS FIGHT" << endl;
 		}
 	}
 	else if (input == "R") {
@@ -109,7 +109,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 		else if (enemyatack == 'R') {
 			mm->enemies[enemy]->stamina = mm->enemies[enemy]->staminaMax;
 			mm->p->stamina = mm->p->maxStamina;
-			cout << "You both rest, this is going to take a while... " << endl;
+			cout << "You both rest, this is going to take a while..." << endl;
 		}
 		else if (enemyatack == 'D') {
 			if (mm->enemies[enemy]->stamina + (mm->enemies[enemy]->stamina * 25) / 100 > mm->enemies[enemy]->staminaMax) {
@@ -119,7 +119,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 				mm->enemies[enemy]->stamina += (mm->enemies[enemy]->staminaMax * 25) / 100;
 			}
 			mm->p->stamina = mm->p->maxStamina;
-			cout << "You rest when the enemy defend, 300 IQ play! " << endl;
+			cout << "You rest when the enemy defend, 300 IQ play!" << endl;
 		}
 	}
 	else if (input == "P") {
@@ -168,7 +168,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 				}
 			}
 
-			cout << "You use potion when the enemy is resting... why haven't you done the same? " << endl;
+			cout << "You use potion when the enemy is resting... why haven't you done the same?" << endl;
 		}
 		else if (enemyatack == 'D') {
 			if (mm->enemies[enemy]->stamina + (mm->enemies[enemy]->stamina * 25) / 100 > mm->enemies[enemy]->staminaMax) {

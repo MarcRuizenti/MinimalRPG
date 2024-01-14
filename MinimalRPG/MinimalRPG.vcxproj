@@ -148,6 +148,7 @@
     <ClInclude Include="EnemyLogic.h" />
     <ClInclude Include="GameFunctions.h" />
     <ClInclude Include="Gear.h" />
+    <ClInclude Include="H&amp;SBar.h" />
     <ClInclude Include="MainManager.h" />
     <ClInclude Include="MapPosition.h" />
     <ClInclude Include="MostrarMapa.h" />
