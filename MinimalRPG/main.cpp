@@ -20,6 +20,7 @@ int main() {
 			break;
 		case GAMEOVER:
 			GameOver(mm);
+			return 0;
 			break;
 		default:
 			break;
