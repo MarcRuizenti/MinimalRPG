@@ -198,14 +198,20 @@ void Chest(MainManager* mm) {
 	cout << "                > " << mm->c[chest]->gear->name;
 
 	vector<int> stats;
-	stats.push_back(mm->c[chest]->gear->hp);
-	stats.push_back(mm->c[chest]->gear->stamina);
-	stats.push_back(mm->c[chest]->gear->agility);
+	if (mm->c[chest]->gear->haveHp)
+		stats.push_back(mm->c[chest]->gear->hp);
+	if (mm->c[chest]->gear->haveStamina)
+		stats.push_back(mm->c[chest]->gear->stamina);
+	if (mm->c[chest]->gear->haveAgility)
+		stats.push_back(mm->c[chest]->gear->agility);
 
 	vector<string> nameStats;
-	nameStats.push_back("HP");
-	nameStats.push_back(" Stamina");
-	nameStats.push_back(" Agility");
+	if (mm->c[chest]->gear->haveHp)
+		nameStats.push_back("HP");
+	if (mm->c[chest]->gear->haveStamina)
+		nameStats.push_back(" Stamina");
+	if (mm->c[chest]->gear->haveAgility)
+		nameStats.push_back(" Agility");
 
 	for (int i = 0; i < stats.size(); i++) {
 		if (stats[i] < 0) {
