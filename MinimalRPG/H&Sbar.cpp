@@ -11,7 +11,6 @@ void ProgressBarHealth(int current, int max) {
 	for (int i = 0; i < barWidth; ++i) {
 		cout << (i < barLength ? "=" : " ");
 	}
-	
 	cout << "] ";
 
 }
