@@ -5,7 +5,7 @@ void Chests::Initialize() {
 	position.X = rand() % 5;
 	position.Y = rand() % 5;
 
-	gold = rand() % 50 + 151;
+	gold = 50 + rand() % (201 - 50);
 
 	gear = new Gear;
 	gear->Initialize();
