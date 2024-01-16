@@ -7,6 +7,27 @@
 void Dungeon(MainManager* mm) {
 	system("cls");
 
+	bool allDead = true;
+
+	for (int i = 0; i < mm->enemies.size(); i++) {
+		if (!mm->enemies[i]->isDead) {
+			allDead = false;
+		}
+	}
+
+	bool allLooted = true;
+
+	for (int i = 0; i < mm->c.size(); i++) {
+		if (!mm->c[i]->isLooted) {
+			allLooted = false;
+		}
+	}
+
+	if (allDead && allLooted) {
+		mm->currentScene = GAMEOVER;
+		return;
+	}
+
 	int sizeX = 5;
 	int sizeY = 5;
 	string input;
@@ -88,25 +109,7 @@ void Dungeon(MainManager* mm) {
 		}
 	}
 
-	bool allDead = true;
-
-	for (int i = 0; i < mm->enemies.size(); i++) {
-		if (!mm->enemies[i]->isDead) {
-			allDead = false;
-		}
-	}
-
-	bool allLooted = true;
-
-	for (int i = 0; i < mm->c.size(); i++) {
-		if (!mm->c[i]->isLooted) {
-			allLooted = false;
-		}
-	}
-
-	if (allDead && allLooted) {
-		mm->currentScene = GAMEOVER;
-	}
+	
 	system("pause");
 }
 

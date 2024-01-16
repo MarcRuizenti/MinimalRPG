@@ -7,10 +7,10 @@ void Enemy::Initialize() {
 
 	isDead = false;
 
-	healthMax = rand() % 60 + 31;
+	healthMax = 60 + rand() % (91 - 60);
 	health = healthMax;
 
-	staminaMax = rand() % 60 + 31;
+	staminaMax = 60 + rand() % (91 - 60);
 	stamina = staminaMax;
 
 }
