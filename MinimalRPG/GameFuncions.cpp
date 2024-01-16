@@ -232,6 +232,9 @@ void Chest(MainManager* mm) {
 			mm->p->potion += 1;
 	}
 
+	mm->p->gold += gold;
+	mm->p->gold += mm->c[chest]->gear->goldValue;
+
 	mm->p->health += mm->c[chest]->gear->hp;
 	mm->p->maxHealth += mm->c[chest]->gear->hp;
 
@@ -264,7 +267,7 @@ void GameOver(MainManager* mm) {
 		
 		cout << "*Insert Mario scream when dies* " << endl << endl;
 		
-		cout << "YOU LOSE :(, the MEM ran it's too much for you... Your final score is " << mm->p->gold << endl;
+		cout << "YOU LOSE :(, the MEM run it's too much for you... Your final score is " << mm->p->gold << endl;
 
 		system("pause");
 	}
@@ -294,7 +297,7 @@ void GameOver(MainManager* mm) {
 
 		cout << "*Insert epic music of Final Fantasy* " << endl << endl;
 
-		cout << "CONGRATULATIONS, you complete the MEM ran. Your final score is " << mm->p->gold << endl;
+		cout << "CONGRATULATIONS, you complete the MEM run. Your final score is " << mm->p->gold << endl;
 
 		system("pause");
 	}
