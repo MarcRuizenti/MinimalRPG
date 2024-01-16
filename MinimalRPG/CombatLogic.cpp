@@ -95,7 +95,7 @@ void CombatLogic(MainManager* mm, string input, int enemy) {
 			else {
 				mm->p->stamina += (mm->p->maxStamina * 25) / 100;
 			}
-			cout << "You both defenD... EPIC METAPODS FIGHT " << endl;
+			cout << "You both defend... EPIC METAPOD FIGHT " << endl;
 		}
 	}
 	else if (input == "R") {

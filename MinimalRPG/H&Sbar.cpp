@@ -4,11 +4,15 @@ void ProgressBarHealth(int current, int max) {
 	const int barWidth = 10;
 	int barLength = barWidth * current / max;
 
-	std::cout << "[";
-	for (int i = 0; i < barWidth; ++i) {
-		std::cout << (i < barLength ? "=" : " ");
+	cout << "[";
+	if (barLength < 1) {
+		cout << "=";
 	}
-	std::cout << "] ";
+	for (int i = 0; i < barWidth; ++i) {
+		cout << (i < barLength ? "=" : " ");
+	}
+	
+	cout << "] ";
 
 }
 
@@ -16,10 +20,10 @@ void ProgressBarStamina(int current, int max) {
 	const int barWidth = 10;
 	int barLength = barWidth * current / max;
 
-	std::cout << "[";
+	cout << "[";
 	for (int i = 0; i < barWidth; ++i) {
-		std::cout << (i < barLength ? ">" : " ");
+		cout << (i < barLength ? ">" : " ");
 	}
-	std::cout << "] ";
+	cout << "] ";
 
 }
