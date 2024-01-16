@@ -9,7 +9,7 @@ void Gear::Initialize() {
 	switch (randomGear)
 	{
 	case RICHARDSBLESSING:
-		name = "Richard’s blessing";
+		name = "Richards blessing";
 		goldValue = 200;
 		hp = 20;
 		haveHp = true;
@@ -46,7 +46,7 @@ void Gear::Initialize() {
 		haveAgility = true;
 		break;
 	case RICHARDCURSE:
-		name = "Richard's curse";
+		name = "Richards curse";
 		goldValue = -300;
 		hp = -20;
 		haveHp = true;
