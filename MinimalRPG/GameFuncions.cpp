@@ -25,7 +25,7 @@ void Dungeon(MainManager* mm) {
 
 	if (allDead && allLooted) {
 		mm->currentScene = GAMEOVER;
-		return;
+		return; 
 	}
 
 	int sizeX = 5;
