@@ -97,15 +97,17 @@ void Dungeon(MainManager* mm) {
 		cout << "Icorect input" << endl << endl;
 	}
 
-	for (int i = 0; i < mm->c.size(); i++) {
-		if (mm->p->position.X == mm->c[i]->position.X && mm->p->position.Y == mm->c[i]->position.Y && !mm->c[i]->isLooted) {
+	for (Chests* chest : mm->c) {
+		if (mm->p->position.X == chest->position.X && mm->p->position.Y == chest->position.Y && !chest->isLooted) {
 			mm->currentScene = CHEST;
+			mm->currentChest = chest;
 		}
 	}
 
-	for (int i = 0; i < mm->enemies.size(); i++) {
-		if (mm->p->position.X == mm->enemies[i]->position.X && mm->p->position.Y == mm->enemies[i]->position.Y && !mm->enemies[i]->isDead) {
+	for (Enemy* e : mm->enemies) {
+		if (mm->p->position.X == e->position.X && mm->p->position.Y == e->position.Y && !e->isDead) {
 			mm->currentScene = COMBAT;
+			mm->currentEnemy = e;
 		}
 	}
 
@@ -117,21 +119,16 @@ void Combat(MainManager* mm) {
 	
 	while (mm->currentScene == COMBAT) {
 		system("cls");
-		int enemy;
-		for (int i = 0; i < mm->enemies.size(); i++) {
-			if (mm->p->position.X == mm->enemies[i]->position.X && mm->p->position.Y == mm->enemies[i]->position.Y) {
-				enemy = i;
-			}
-		}
+		system("cls");
 
 		cout << "------ COMBAT ------" << endl << endl;
 
 		cout << "-- Enemy --" << endl << endl;
 
-		ProgressBarHealth(mm->enemies[enemy]->health, mm->enemies[enemy]->healthMax);
+		ProgressBarHealth(mm->currentEnemy->health, mm->currentEnemy->healthMax);
 		cout << "? HP" << endl;
 		
-		ProgressBarStamina(mm->enemies[enemy]->stamina, mm->enemies[enemy]->staminaMax);
+		ProgressBarStamina(mm->currentEnemy->stamina, mm->currentEnemy->staminaMax);
 		cout << "? Stamina" << endl << endl;
 
 		cout << "----------------" << endl << endl;
@@ -163,7 +160,7 @@ void Combat(MainManager* mm) {
 		}
 
 		if (input == "A" || input == "D" || input == "R" || input == "P") {
-			CombatLogic(mm, input, enemy);
+			CombatLogic(mm, input);
 		}
 		else {
 			cout << "Icorect input" << endl << endl;
@@ -172,9 +169,9 @@ void Combat(MainManager* mm) {
 		if (mm->p->health <= 0) {
 			mm->currentScene = GAMEOVER;
 		}
-		else if (mm->enemies[enemy]->health <= 0) {
+		else if (mm->currentEnemy->health <= 0) {
 			mm->currentScene = DUNGEON;
-			mm->enemies[enemy]->isDead = true;
+			mm->currentEnemy->isDead = true;
 		}
 		system("pause");
 	}
@@ -182,13 +179,6 @@ void Combat(MainManager* mm) {
 }
 void Chest(MainManager* mm) {
 	system("cls");
-	
-	int chest;
-	for (int i = 0; i < mm->c.size(); i++) {
-		if (mm->p->position.X == mm->c[i]->position.X && mm->p->position.Y == mm->c[i]->position.Y) {
-			chest = i;
-		}
-	}
 
 	cout << "------ CHEST ------" << endl << endl;
 
@@ -198,22 +188,22 @@ void Chest(MainManager* mm) {
 
 	cout << "        > " << gold << " gold!" << endl;
 	cout << "        > The Chest contains Gear!" << endl;
-	cout << "                > " << mm->c[chest]->gear->name;
+	cout << "                > " << mm->currentChest->gear->name;
 
 	vector<int> stats;
-	if (mm->c[chest]->gear->haveHp)
-		stats.push_back(mm->c[chest]->gear->hp);
-	if (mm->c[chest]->gear->haveStamina)
-		stats.push_back(mm->c[chest]->gear->stamina);
-	if (mm->c[chest]->gear->haveAgility)
-		stats.push_back(mm->c[chest]->gear->agility);
+	if (mm->currentChest->gear->haveHp)
+		stats.push_back(mm->currentChest->gear->hp);
+	if (mm->currentChest->gear->haveStamina)
+		stats.push_back(mm->currentChest->gear->stamina);
+	if (mm->currentChest->gear->haveAgility)
+		stats.push_back(mm->currentChest->gear->agility);
 
 	vector<string> nameStats;
-	if (mm->c[chest]->gear->haveHp)
+	if (mm->currentChest->gear->haveHp)
 		nameStats.push_back("HP");
-	if (mm->c[chest]->gear->haveStamina)
+	if (mm->currentChest->gear->haveStamina)
 		nameStats.push_back(" Stamina");
-	if (mm->c[chest]->gear->haveAgility)
+	if (mm->currentChest->gear->haveAgility)
 		nameStats.push_back(" Agility");
 
 	for (int i = 0; i < stats.size(); i++) {
@@ -227,7 +217,7 @@ void Chest(MainManager* mm) {
 
 	cout << endl << endl;
 
-	if (mm->c[chest]->potion) {
+	if (mm->currentChest->potion) {
 		cout << "        > The Chest contains a potion!" << endl;
 		if (mm->p->potion == mm->p->maxPotion) {
 			cout << "                > You alredy have max potions!" << endl << endl;
@@ -238,19 +228,19 @@ void Chest(MainManager* mm) {
 	}
 
 	mm->p->gold += gold;
-	mm->p->gold += mm->c[chest]->gear->goldValue;
+	mm->p->gold += mm->currentChest->gear->goldValue;
 
-	mm->p->health += mm->c[chest]->gear->hp;
-	mm->p->maxHealth += mm->c[chest]->gear->hp;
+	mm->p->health += mm->currentChest->gear->hp;
+	mm->p->maxHealth += mm->currentChest->gear->hp;
 
-	mm->p->stamina += mm->c[chest]->gear->stamina;
-	mm->p->maxStamina += mm->c[chest]->gear->stamina;
+	mm->p->stamina += mm->currentChest->gear->stamina;
+	mm->p->maxStamina += mm->currentChest->gear->stamina;
 
-	mm->p->agility += mm->c[chest]->gear->agility;
-	mm->p->maxAgility += mm->c[chest]->gear->agility;
+	mm->p->agility += mm->currentChest->gear->agility;
+	mm->p->maxAgility += mm->currentChest->gear->agility;
 
-	mm->p->gears.push_back(mm->c[chest]->gear);
-	mm->c[chest]->isLooted = true;
+	mm->p->gears.push_back(mm->currentChest->gear);
+	mm->currentChest->isLooted = true;
 
 	system("pause");
 	mm->currentScene = DUNGEON;

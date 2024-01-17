@@ -11,8 +11,12 @@ struct MainManager
 	bool gameIsFinish;
 
 	Player* p;
+
 	vector<Chests*> c;
+	Chests* currentChest;
+
 	vector<Enemy*> enemies;
+	Enemy* currentEnemy;
 	
 
 	void Initialize();

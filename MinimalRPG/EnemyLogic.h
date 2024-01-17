@@ -1,4 +1,4 @@
 #pragma once
 #include "CombatLogic.h"
 
-char SelectAtackEnemy(MainManager* mm, int enemy);
+char SelectAtackEnemy(MainManager* mm);
