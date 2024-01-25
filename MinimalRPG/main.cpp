@@ -20,10 +20,12 @@ int main() {
 			break;
 		case GAMEOVER:
 			GameOver(mm);
-			return 0;
+			mm->gameIsFinish = true;
 			break;
 		default:
 			break;
 		}
 	} while (!mm->gameIsFinish);
+
+	return 0;
 }
