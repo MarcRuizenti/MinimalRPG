@@ -1,5 +1,5 @@
 #include "CombatLogic.h"
-#include "EnemyLogic.h"
+
 
 void CombatLogic(MainManager* mm, string input) {
 	char enemyatack = SelectAtackEnemy(mm);
